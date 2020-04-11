@@ -1,0 +1,15 @@
+ <!-- `editing`  `completed` -->
+ <li [class.completed]="todo.completed" [class.editing]="edit">
+  <div class="view">
+    <input [formControl]="chkCompleted" class="toggle" type="checkbox">
+    <label (dblclick)="editar()">{{ todo.text }}</label>
+    <button class="destroy" (click)="borrar()"></button>
+  </div>
+  <input 
+    [formControl]="textEdit" 
+    class="edit" 
+    type="text"
+    #inputFisico 
+    (blur)="editFinish()"
+  /> <!-- blur se ejecuta cuando el usuario abandona el cursor en el formulario -->
+</li>
